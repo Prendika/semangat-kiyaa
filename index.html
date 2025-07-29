@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiyaa~ Mode Semangat!</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: linear-gradient(135deg, #ffcce6, #ccf2ff);
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.9);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: 4px dashed #ff99cc;
+        }
+        h1 {
+            color: #ff6699;
+            font-size: 2em;
+            text-shadow: 2px 2px 0px #fff;
+        }
+        .kiyaa-emoji {
+            font-size: 3rem;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        button {
+            background: #ff6699;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            font-family: 'Comic Sans MS';
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(255,102,153,0.3);
+        }
+        button:hover {
+            background: #ff3385;
+            transform: scale(1.05);
+        }
+        #motivationText {
+            margin: 20px 0;
+            padding: 15px;
+            background: #fff0f5;
+            border-radius: 10px;
+            font-size: 1.2em;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .music-player {
+            margin: 20px 0;
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        select {
+            padding: 8px;
+            border-radius: 20px;
+            border: 2px solid #ff99cc;
+            font-family: 'Comic Sans MS';
+            margin: 10px;
+        }
+        footer {
+            margin-top: 20px;
+            color: #ff6699;
+            font-size: 0.9em;
+        }
+        /* Style baru untuk YouTube Player */
+        #youtubePlayer {
+            margin-top: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(255,102,153,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="kiyaa-emoji">🌸</div>
+        <h1>Kiyaa~ Mode Semangat!</h1>
+        
+        <div id="motivationText">
+            Klik tombol bawah buat dapetin semangat!
+        </div>
+        
+        <button onclick="generateMotivation()">Kasih Semangat!</button>
+        <button onclick="playKiyaaSound()">Play Sound Kiyaa~</button>
+        
+        <!-- Pemutar YouTube Baru -->
+        <div class="music-player">
+            <h3>🎵 Pilih Lagu YouTube</h3>
+            <select id="youtubeSelect" onchange="playYouTube()">
+                <option value="">--Pilih lagu--</option>
+                <option value="Ar7sLOjgHQU">Mangu</option>
+                <option value="NIrgf9gLWcI">Batas Senja</option>
+                <option value="eZpLvw-AdFA">Ra iso dadi siji</option>
+                <option value="RSWPTbP2uik">Dumes</option>
+                 <option value="NuQt2drTCcE">Terbang Bersamaku</option>
+                <option value="pmanD_s7G3U">Gurenge - LiSA (Demon Slayer)</option>
+            </select>
+            <div id="youtubePlayer"></div>
+        </div>
+        
+        <!-- Pemutar Spotify (tetap dipertahankan) -->
+        
+        
+        <footer>
+            Dibuat dengan ♥ untuk bikin harimu lebih berwarna!
+        </footer>
+    </div>
+
+    <script>
+        const motivations = [
+            "Kamu itu keren banget! Jangan lupa itu! 💪",
+            "Hari ini adalah kanvas kosong, lukis dengan warna-warni mimpimu! 🎨",
+            "Kiyaa~ Kamu pasti bisa! Aku percaya sama kamu! ✨",
+            "Jangan bandingin dirimu sama orang lain. Kamu itu unik! 🌟",
+            "Sedikit progress tiap hari >>>> langsung sempurna dalam sehari! 🐢",
+            "Kalau lelah, istirahat. Bukan nyerah! 😴💖",
+            "Kamu kuat, kamu mampu, kamu bisa! 🔥",
+            "Semangat ya, Kiya! Dunia mungkin berat,tapi senyum kamu lebih kuat,🌸",
+            "Kiya itu seperti kopi pagi.. bikin semangat dan selalu di rindukan  ☕✨",
+            "Kamu kuat! Lebih kuat dari WiFi pas hujan deras! 🌧️📶"
+        ];
+        
+        function generateMotivation() {
+            const randomMotivation = motivations[Math.floor(Math.random() * motivations.length)];
+            const motivationElement = document.getElementById('motivationText');
+            
+            motivationElement.style.animation = 'none';
+            motivationElement.offsetHeight;
+            motivationElement.style.animation = 'fadeIn 0.5s';
+            
+            motivationElement.innerHTML = randomMotivation;
+            
+            const emojis = ['🌸', '🌟', '💪', '✨', '🎉', '🔥', '🐶'];
+            document.querySelector('.kiyaa-emoji').textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        }
+        
+        function playKiyaaSound() {
+            const kiyaaSounds = [
+                "https://www.myinstants.com/media/sounds/kyaa.mp3",
+                "https://www.myinstants.com/media/sounds/anime-uwu-sound.mp3"
+            ];
+            const sound = new Audio(kiyaaSounds[Math.floor(Math.random() * kiyaaSounds.length)]);
+            sound.play();
+        }
+        
+        function playYouTube() {
+            const videoId = document.getElementById('youtubeSelect').value;
+            const player = document.getElementById('youtubePlayer');
+            
+            if (!videoId) {
+                player.innerHTML = '';
+                return;
+            }
+
+            player.innerHTML = `
+                <iframe 
+                    src="https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1" 
+                    width="100%" 
+                    height="200" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            `;
+        }
+        
+        function playSpotify() {
+            const trackId = document.getElementById('spotifySelect').value;
+            const player = document.getElementById('spotifyPlayer');
+            
+            if (!trackId) {
+                player.innerHTML = '';
+                return;
+            }
+
+            player.innerHTML = `
+                <iframe 
+                    src="https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0" 
+                    width="100%" 
+                    height="152" 
+                    frameborder="0"
+                    allowfullscreen 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                </iframe>
+            `;
+        }
+        
+        window.onload = function() {
+            generateMotivation();
+        };
+    </script>
+</body>
+</html>
